@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 
 const Header = () => {
-  const { isAuthenticated, user, logout } = useAuth();
+  const { isAuthenticated, logout } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -30,12 +30,7 @@ const Header = () => {
             {isAuthenticated ? (
               <>
                 <span style={{ color: "#ccc", margin: "0 10px" }}>|</span>
-                <span
-                  className="user-name"
-                  style={{ color: "#aaa", padding: "0 10px" }}
-                >
-                  Hello, {user?.username}!
-                </span>
+
                 <Link to="/login" onClick={handleLogout}>
                   Logout
                 </Link>
