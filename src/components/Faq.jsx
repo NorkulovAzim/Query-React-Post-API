@@ -88,7 +88,7 @@ const Faq = () => {
         <h2>Frequently Asked Questions</h2>
         {isAuthenticated && (
           <div style={{ textAlign: "right" }}>
-            <p>Logged in as: {user?.username}</p>
+            <p>Welcome, {user?.username}</p>
             <button onClick={logout}>Logout</button>
           </div>
         )}
