@@ -16,9 +16,7 @@ const Header = () => {
     <header className="header">
       <div className="container">
         <nav className="nav-links">
-          <h1>
-            <i className="fas fa-question-circle"></i> FAQ Manager
-          </h1>
+          <h1>FAQ Platform</h1>
           <div>
             <Link to="/" className={location.pathname === "/" ? "active" : ""}>
               Home
