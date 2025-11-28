@@ -70,9 +70,6 @@ const Login = () => {
           </button>
         </form>
         <div style={{ marginTop: "20px", fontSize: "14px", color: "#666" }}>
-          <p>
-            <strong>Demo credentials:</strong>
-          </p>
           <p>Username: emilys</p>
           <p>Password: emilyspass</p>
         </div>
