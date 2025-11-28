@@ -31,7 +31,6 @@ const Header = () => {
           {isAuthenticated ? (
             <>
               <span style={{ color: "#ccc", margin: "0 10px" }}>|</span>
-              <span style={{ color: "#666" }}>Hello, {user?.username}!</span>
               <Link to="/login" onClick={handleLogout}>
                 Logout
               </Link>
