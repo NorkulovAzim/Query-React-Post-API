@@ -1,6 +1,15 @@
-import { useContext } from "react";
-import AuthContext from "../contexts/AuthContext";
+import useAuthStore from "../stores/authStore";
 
 export const useAuth = () => {
-  return useContext(AuthContext);
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
+  const user = useAuthStore((state) => state.user);
+  const login = useAuthStore((state) => state.login);
+  const logout = useAuthStore((state) => state.logout);
+
+  return {
+    isAuthenticated,
+    user,
+    login,
+    logout,
+  };
 };

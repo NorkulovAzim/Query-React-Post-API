@@ -25,7 +25,7 @@ const Faq = () => {
       setAnswer("");
     },
     onError: (error) => {
-      console.error("Error:", error);
+      console.error("Error creating FAQ:", error);
     },
   });
 
@@ -36,7 +36,7 @@ const Faq = () => {
       setEditingId(null);
     },
     onError: (error) => {
-      console.error("Error:", error);
+      console.error("Error updating FAQ:", error);
     },
   });
 
@@ -46,7 +46,7 @@ const Faq = () => {
       queryClient.invalidateQueries({ queryKey: ["faqs"] });
     },
     onError: (error) => {
-      console.error("Error:", error);
+      console.error("Error deleting FAQ:", error);
     },
   });
 
@@ -78,24 +78,40 @@ const Faq = () => {
     setEditingId(null);
   };
 
-  if (isLoading) return <div className="container">Loading FAQs...</div>;
-  if (error)
-    return <div className="container">Error loading FAQs: {error.message}</div>;
+  if (isLoading) return <div>Loading FAQs...</div>;
+  if (error) return <div>Error loading FAQs: {error.message}</div>;
 
   return (
-    <div className="container">
-      <div>
+    <div style={{ padding: "20px" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: "20px",
+        }}
+      >
         <h2>Frequently Asked Questions</h2>
         {isAuthenticated && (
           <div style={{ textAlign: "right" }}>
-            <p>Welcome, {user?.username}</p>
-            <button onClick={logout}>Logout</button>
+            <p>Logged in as: {user?.username}</p>
+            <button onClick={logout} style={{ backgroundColor: "#666" }}>
+              Logout
+            </button>
           </div>
         )}
       </div>
 
       {!isAuthenticated && (
-        <div>
+        <div
+          style={{
+            padding: "20px",
+            backgroundColor: "#f0f0f0",
+            color: "#333",
+            borderRadius: "5px",
+            marginBottom: "20px",
+          }}
+        >
           <p>You must be logged in to add, edit, or delete FAQs.</p>
           <p>
             Please <a href="/login">log in</a> to access these features.

@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 
 const Header = () => {
-  const { isAuthenticated, logout } = useAuth();
+  const { isAuthenticated, user, logout } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -14,38 +14,38 @@ const Header = () => {
 
   return (
     <header className="header">
-      <div className="container">
-        <nav className="nav-links">
-          <h1>FAQ Platform</h1>
-          <div>
-            <Link to="/" className={location.pathname === "/" ? "active" : ""}>
-              Home
-            </Link>
-            <Link
-              to="/faqs"
-              className={location.pathname === "/faqs" ? "active" : ""}
-            >
-              FAQs
-            </Link>
-            {isAuthenticated ? (
-              <>
-                <span style={{ color: "#ccc", margin: "0 10px" }}>|</span>
-
-                <Link to="/login" onClick={handleLogout}>
-                  Logout
-                </Link>
-              </>
-            ) : (
-              <Link
-                to="/login"
-                className={location.pathname === "/login" ? "active" : ""}
-              >
-                Login
+      <nav className="nav-links">
+        <h1>
+          <i className="fas fa-question-circle"></i> FAQ Manager
+        </h1>
+        <div>
+          <Link to="/" className={location.pathname === "/" ? "active" : ""}>
+            Home
+          </Link>
+          <Link
+            to="/faqs"
+            className={location.pathname === "/faqs" ? "active" : ""}
+          >
+            FAQs
+          </Link>
+          {isAuthenticated ? (
+            <>
+              <span style={{ color: "#ccc", margin: "0 10px" }}>|</span>
+              <span style={{ color: "#666" }}>Hello, {user?.username}!</span>
+              <Link to="/login" onClick={handleLogout}>
+                Logout
               </Link>
-            )}
-          </div>
-        </nav>
-      </div>
+            </>
+          ) : (
+            <Link
+              to="/login"
+              className={location.pathname === "/login" ? "active" : ""}
+            >
+              Login
+            </Link>
+          )}
+        </div>
+      </nav>
     </header>
   );
 };
