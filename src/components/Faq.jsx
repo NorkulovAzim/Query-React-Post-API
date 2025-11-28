@@ -145,7 +145,7 @@ const Faq = () => {
               placeholder="Enter your answer"
               value={answer}
               onChange={(e) => setAnswer(e.target.value)}
-              style={{ width: "100%", minHeight: "100px" }}
+              style={{ width: "100%" }}
             />
           </div>
           <button type="submit" disabled={createMutation.isPending}>

@@ -29,7 +29,7 @@ const Login = () => {
       await login(username, password);
       navigate("/faqs");
     } catch (err) {
-      setError(err.message || "Invalid credentials. Please try again.");
+      setError(err.message, "Please try again.");
     } finally {
       setLoading(false);
     }

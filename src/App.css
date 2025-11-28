@@ -206,6 +206,7 @@ textarea {
   font-size: 14px;
   font-family: inherit;
   background-color: #fff;
+  width: 100%;
 }
 
 input:focus,
