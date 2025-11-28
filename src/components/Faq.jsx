@@ -94,7 +94,7 @@ const Faq = () => {
         <h2>Frequently Asked Questions</h2>
         {isAuthenticated && (
           <div style={{ textAlign: "right" }}>
-            <p>Logged in as: {user?.username}</p>
+            <p>Welcome back, {user?.username}</p>
             <button onClick={logout} style={{ backgroundColor: "#666" }}>
               Logout
             </button>
@@ -112,7 +112,7 @@ const Faq = () => {
             marginBottom: "20px",
           }}
         >
-          <p>You must be logged in to add, edit, or delete FAQs.</p>
+          <p>Please login.</p>
           <p>
             Please <a href="/login">log in</a> to access these features.
           </p>
