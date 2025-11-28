@@ -1,9 +1,7 @@
 import axios from "axios";
 
-// Since we're using a different API for FAQs, we'll keep the existing one
 const API_BASE_URL = "https://faq-crud.onrender.com/api/faqs";
 
-// Create an axios instance with default config
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
   headers: {
@@ -11,7 +9,6 @@ const apiClient = axios.create({
   },
 });
 
-// Add a request interceptor to include auth token if available
 apiClient.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("auth-storage");

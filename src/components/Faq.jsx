@@ -78,7 +78,12 @@ const Faq = () => {
     setEditingId(null);
   };
 
-  if (isLoading) return <div>Loading FAQs...</div>;
+  if (isLoading)
+    return (
+      <div className="loading-container">
+        <div className="spinner"></div>
+      </div>
+    );
   if (error) return <div>Error loading FAQs: {error.message}</div>;
 
   return (
